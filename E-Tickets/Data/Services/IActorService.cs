@@ -9,7 +9,7 @@ namespace E_Tickets.Data.Services
     interface IActorService
     {
 
-        IEnumerable<Actor> GetAll();
+        Task<IEnumerable<Actor>> GetAll();
 
         Actor GetById(int id);
 
