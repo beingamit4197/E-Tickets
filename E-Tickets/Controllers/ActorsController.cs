@@ -10,7 +10,7 @@ namespace E_Tickets.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly  IActorsService _service;
+        private readonly IActorsService _service;
 
         public ActorsController(IActorsService service)
         {
@@ -21,6 +21,12 @@ namespace E_Tickets.Controllers
         {
             var data = await _service.GetAll();
             return View(data);
+        }
+
+
+        public IActionResult Create()
+        {
+            return View(); 
         }
     }
 }
