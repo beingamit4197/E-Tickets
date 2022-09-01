@@ -18,12 +18,18 @@ namespace E_Tickets.Data.Services
 
         public void Add(Actor actor)
         {
-            throw new NotImplementedException();
+            _context.Actors.Add(actor);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        internal Task GetAllAsync()
+        {
+            throw new NotImplementedException(); 
         }
 
         public async Task<IEnumerable<Actor>> GetAll()

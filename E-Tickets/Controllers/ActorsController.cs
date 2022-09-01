@@ -1,5 +1,6 @@
 ﻿using E_Tickets.Data;
 using E_Tickets.Data.Services;
+using E_Tickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,18 @@ namespace E_Tickets.Controllers
 
         public IActionResult Create()
         {
-            return View(); 
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create([Bind("FullName,ProfilePictureUrl,Bio")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            _service.Add(actor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
